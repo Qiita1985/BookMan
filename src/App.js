@@ -1,16 +1,12 @@
-import Header from './components/Header'
-// import Body from './components/Body'
-import Form from './components/Form'
+import Home from './components/Home'
 
 function App() {
+ 
   return (
     <div>
-      <Header />
-      {/* <Body /> */}
-      <Form />
+      <Home />
     </div>
   );
 }
-
 
 export default App;
