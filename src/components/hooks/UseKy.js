@@ -6,15 +6,16 @@ const BASE_URL =
 const applicationId = "1096604682215741435";
 
 const useBookInfo = () => {
-  const [fetching, setfetching] = useState(false)
+  const [fetching, setFetching] = useState(false);
   const [books, setBook] = useState("");
   async function fetchBook(example) {
+    setFetching(true)
     const encodedParams = encodeURI(example);
     const title = await ky
       .get(`${BASE_URL} ${encodedParams}&applicationId=${applicationId}`)
       .json();
     setBook(title);
-    setfetching(true);
+    setFetching(false);
   }
   useEffect(() => {
     console.log(books);

@@ -9,10 +9,8 @@ export default function Home() {
     formState: { errors },
   } = useForm();
   const { books, fetchBook, fetching } = useBookInfo();
-  const [click, setClick] = useState(false);
   const onSubmit = (data) => {
     fetchBook(data.example);
-    setClick(true);
   };
   return (
     <div>
@@ -23,10 +21,7 @@ export default function Home() {
         />
         {errors.exampleRequired && <span>This field is required</span>}
         <input type="submit" />
-        <div>
-          {click && <Bodys books={books} />}
-          {!click && <p>読みたい本を検索してください</p>}
-        </div>
+        <div>{fetching ? <p>loading</p> : <Bodys books={books} />}</div>
       </form>
     </div>
   );

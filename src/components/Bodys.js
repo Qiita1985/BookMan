@@ -1,14 +1,14 @@
-import React from 'react'
-import Body from './Body'
+import React from "react";
+import Body from "./Body";
 
-const Bodys=({ books })=> {
+const Bodys = ({ books }) => {
   return (
     <ul>
-      {books.map((book,index)=>{
-      <Body key={index} book={book}/>
+      {books.map((item, index) => {
+        return <Body key={index} item={item} />;
       })}
     </ul>
-  )
-}
+  );
+};
 
-export default Bodys
+export default Bodys;
