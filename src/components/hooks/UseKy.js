@@ -7,7 +7,7 @@ const applicationId = "1096604682215741435";
 
 const useBookInfo = () => {
   const [fetching, setfetching] = useState(false)
-  const [book, setBook] = useState("");
+  const [books, setBook] = useState("");
   async function fetchBook(example) {
     const encodedParams = encodeURI(example);
     const title = await ky
@@ -17,10 +17,10 @@ const useBookInfo = () => {
     setfetching(true);
   }
   useEffect(() => {
-    console.log(book);
-  }, [book]);
+    console.log(books);
+  }, [books]);
   return {
-    book,
+    books,
     fetchBook,
     fetching,
   };
