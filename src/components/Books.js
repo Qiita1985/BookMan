@@ -2,17 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import Body from "./Body";
 
-function Books(props) {
+function Books(author) {
   return (
-    <div>
+    <ul>
       <ul className='flex '>
-        <Body />
+        <Body author={author} />
         <Body />
         <Body />
         <Body />
         <Body />
       </ul>
-    </div>
+    </ul>
   );
 }
 

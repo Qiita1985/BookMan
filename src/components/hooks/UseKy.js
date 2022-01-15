@@ -1,15 +1,29 @@
-import {useState} from 'react';
-import ky from 'ky';
+import { useState, useEffect } from "react";
+import ky from "ky";
 
-//楽天apiのURL
-const base_url = 
-'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?fformat=json&title=';
-const applicationId = '1096604682215741435';
-const [Useky, setUseky] = useState(false)
-const [Result,setResult]= useState({});
-const UseData =(data)=>{
-  const encodedData = encodeURI(data)
-  console.log(encodedData)
-}
+const BASE_URL =
+  "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=";
+const applicationId = "1096604682215741435";
 
-export default UseData
+const useBookInfo = () => {
+  const [fetching, setfetching] = useState(false)
+  const [book, setBook] = useState("");
+  async function fetchBook(example) {
+    const encodedParams = encodeURI(example);
+    const title = await ky
+      .get(`${BASE_URL} ${encodedParams}&applicationId=${applicationId}`)
+      .json();
+    setBook(title);
+    setfetching(true);
+  }
+  useEffect(() => {
+    console.log(book);
+  }, [book]);
+  return {
+    book,
+    fetchBook,
+    fetching,
+  };
+};
+
+export default useBookInfo;
