@@ -4,8 +4,8 @@ import Body from "./Body";
 const Bodys = ({ books }) => {
   return (
     <ul>
-      {books.map((item, index) => {
-        return <Body key={index} item={item} />;
+      {books.products.map((book, index) => {
+        return <Body key={index} book={book} />;
       })}
     </ul>
   );
