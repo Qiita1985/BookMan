@@ -12,14 +12,11 @@ const useBookInfo = () => {
     setFetching(true);
     const encodedParams = encodeURI(example);
     const title = await ky
-      .get(`${BASE_URL} ${encodedParams}&applicationId=${applicationId}`)
+      .get(`${BASE_URL} ${encodedParams}&field=0&availability=0&applicationId=${applicationId}`)
       .json();
     setBook(title);
     setFetching(false);
   }
-  useEffect(() => {
-    console.log(books);
-  }, [books]);
   return {
     books,
     fetchBook,
