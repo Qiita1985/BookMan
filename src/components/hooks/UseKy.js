@@ -9,7 +9,7 @@ const useBookInfo = () => {
   const [fetching, setFetching] = useState(false);
   const [books, setBook] = useState("");
   async function fetchBook(example) {
-    setFetching(true)
+    setFetching(true);
     const encodedParams = encodeURI(example);
     const title = await ky
       .get(`${BASE_URL} ${encodedParams}&applicationId=${applicationId}`)
