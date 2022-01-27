@@ -1,9 +1,11 @@
 module.exports = {
-  purge: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+    width: {
+      800: "800px",
+      180: "180px",
+    },
+      extend: {}
+    },
+    plugins: [],
+};
