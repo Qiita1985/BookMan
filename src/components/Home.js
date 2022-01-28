@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useBookInfo from "./hooks/UseKy";
 import Bodys from "./Bodys";
+import Ranking from "./Ranking";
 
 export default function Home() {
   const {
@@ -9,10 +10,14 @@ export default function Home() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { books, fetchBook, fetching } = useBookInfo();
+  const { books, fetchBook, fetching, loading, ranks, rankingBook, title } =
+    useBookInfo();
   const onSubmit = (data) => {
     fetchBook(data.example);
   };
+  useEffect(() => {
+    rankingBook();
+  }, []);
   return (
     <div>
       <header>
@@ -29,13 +34,14 @@ export default function Home() {
             {errors.exampleRequired && <span>This field is required</span>}
             <input
               type="submit"
-              className="inline-block px-5 rounded-lg bg-red-600 text-white font-semibold"
+              className="inline-block px-5 rounded-lg bg-red-600 text-white font-semibold "
             />
           </form>
         </div>
       </header>
-      <div className="bg-stone-200 pt-2 ">
-        {fetching ? <p>loading</p> : <Bodys books={books} />}
+      <div className="bg-stone-200 pt-2 flex">
+        {loading ? <Ranking ranks={ranks} /> : <p>loading</p>}
+        {fetching ? <p>loading</p> : <Bodys books={books} title={title} />}
       </div>
     </div>
   );
