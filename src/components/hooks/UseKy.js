@@ -39,7 +39,7 @@ const useBookInfo = () => {
       .json();
     setRanks(books);
   }
-
+  
   return {
     books,
     fetchBook,

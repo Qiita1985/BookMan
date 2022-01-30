@@ -11,7 +11,7 @@ const Body = ({ book }) => {
     }
   }
   return (
-    <div className="p-2">
+    <div className="py-4 pr-1">
       <div className="w-180 ">
         <a href={book.Item.itemUrl} className="block w-32">
           <img src={book.Item.largeImageUrl} />
