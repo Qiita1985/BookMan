@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import useBookInfo from "./hooks/UseKy";
 import Bodys from "./Bodys";
 import Ranking from "./Ranking";
-import Loading from "./Loadding";
+import Loading from "./Loading";
 import { ImSearch } from "react-icons/im";
 import { GiBookshelf } from "react-icons/gi"
 

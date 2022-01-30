@@ -25,7 +25,7 @@ const Ranking = ({ ranks }) => {
             <div key={index} rank={rank} className="h-48  border-b-sky-400 border-b-2 max-w-md w-auto ">
               <p className="text-center">{rank.Item.rank}位</p>
               <div className="flex">
-                <div className="px-4 h-168 w-160">
+                <div className="pl-4 h-168 w-160 m-auto">
                   <a href={rank.Item.itemUrl} className="">
                     <img
                       src={rank.Item.mediumImageUrls[0].imageUrl}
