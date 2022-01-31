@@ -36,13 +36,15 @@ export default function Home() {
           </a>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="box-border px-5 pt-2 border-solid border rounded-3xl
-            bg-white ml-10"
+            className='box-border border-solid border px-5 pt-2  rounded-3xl
+           ml-10'
           >
             <input
               placeholder="タイトル、著者名"
               {...register("example", { required: true })}
-              className="bg-white outline-none"
+              type='text'
+              className='outline-none '
+              autoComplete='none'
             />
             <button>
               <ImSearch />

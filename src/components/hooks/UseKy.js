@@ -16,10 +16,10 @@ const useBookInfo = () => {
   const [title, setTitle] = useState("");
 
   //検索ボタンが押された時の処理
-  async function fetchBook(example) {
-    setTitle(example);
+  async function fetchBook(data) {
+    setTitle(data);
     setFetching(true);
-    const encodedParams = encodeURI(example);
+    const encodedParams = encodeURI(data);
     const title = await ky
       .get(
         `${BASE_URL} ${encodedParams}&field=0&availability=0&applicationId=${applicationId}`
