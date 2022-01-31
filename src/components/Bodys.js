@@ -8,7 +8,7 @@ const Bodys = ({ books, title }) => {
         <h1 className="text-5xl text-center">
           そうだ<span className="font-bold text-indigo-500">本</span>を読もう
         </h1>
-        <img src="human.png" />
+        <img src="human.png" className='duration-300 transition' />
       </div>
     );
   return (

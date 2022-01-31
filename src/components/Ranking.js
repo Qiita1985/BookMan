@@ -13,7 +13,7 @@ const Ranking = ({ ranks }) => {
   }
   if (!ranks.Items) return null;
   return (
-    <div className="bg-stone-100 mx-10  py-5 rounded-lg mr-auto">
+    <div>
       <h2 className="text-center">
         <BiCrown className="mx-auto " size={30} />
         ランキング

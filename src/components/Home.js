@@ -5,14 +5,12 @@ import Bodys from "./Bodys";
 import Ranking from "./Ranking";
 import Loading from "./Loading";
 import { ImSearch } from "react-icons/im";
-import { GiBookshelf } from "react-icons/gi"
-
+import { GiBookshelf } from "react-icons/gi";
 
 export default function Home() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
   const { books, fetchBook, fetching, loading, ranks, rankingBook, title } =
     useBookInfo();
@@ -31,20 +29,22 @@ export default function Home() {
       <header className="bg-white border-b-sky-400 border-b-4">
         <div className=" flex px-5 py-5 ">
           <a href="/">
-            <div className="ml-9 text-4xl flex"><GiBookshelf />BookMan</div>
+            <div className="ml-9 text-4xl flex">
+              <GiBookshelf />
+              BookMan
+            </div>
           </a>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="box-border px-5 pt-2 border-solid border rounded-3xl
-            bg-white ml-10 "
+            bg-white ml-10"
           >
             <input
               placeholder="タイトル、著者名"
               {...register("example", { required: true })}
-              className="bg-white"
+              className="bg-white outline-none"
             />
-            {errors.exampleRequired && <span>This field is required</span>}
-            <button className="">
+            <button>
               <ImSearch />
             </button>
           </form>
@@ -54,7 +54,9 @@ export default function Home() {
         <div className="rounded-lg w-950 border-solid bg-white pl-20 py-10">
           {fetching ? <Loading /> : <Bodys books={books} title={title} />}
         </div>
-        {loading ? <Ranking ranks={ranks} /> : <p>loading</p>}
+        <div className="bg-stone-100 mx-10  py-5 rounded-lg mr-auto">
+          {loading ? <Ranking ranks={ranks} /> : <Loading />}
+        </div>
       </div>
     </div>
   );
