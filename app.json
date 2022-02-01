@@ -1,0 +1,7 @@
+{
+  "name": "web-app",
+  "description": "Bookman",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}

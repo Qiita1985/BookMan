@@ -8,10 +8,7 @@ import { ImSearch } from "react-icons/im";
 import { GiBookshelf } from "react-icons/gi";
 
 export default function Home() {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const { books, fetchBook, fetching, loading, ranks, rankingBook, title } =
     useBookInfo();
   const onSubmit = (data) => {
@@ -36,15 +33,15 @@ export default function Home() {
           </a>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className='box-border border-solid border px-5 pt-2  rounded-3xl
-           ml-10'
+            className="box-border border-solid border px-5 pt-2  rounded-3xl
+           ml-10"
           >
             <input
               placeholder="タイトル、著者名"
               {...register("example", { required: true })}
-              type='text'
-              className='outline-none '
-              autoComplete='none'
+              type="text"
+              className="outline-none "
+              autoComplete="none"
             />
             <button>
               <ImSearch />
