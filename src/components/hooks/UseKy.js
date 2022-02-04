@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ky from "ky";
-import dotenv from 'dotenv'
+require('dotenv').config()
 
 //楽天APIのURL
 const BASE_URL =
