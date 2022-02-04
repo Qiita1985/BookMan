@@ -1,13 +1,5 @@
 import { useState } from "react";
 import ky from "ky";
-require('dotenv').config()
-
-//楽天APIのURL
-const BASE_URL =
-  "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=";
-const RANKING_URL =
-  "https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&genreId=200162&&";
-const applicationId = process.env.REACT_APP_ID;
 
 const useBookInfo = () => {
   const [fetching, setFetching] = useState(false);
@@ -15,6 +7,14 @@ const useBookInfo = () => {
   const [loading, setLoading] = useState(false);
   const [ranks, setRanks] = useState("");
   const [title, setTitle] = useState("");
+
+  //楽天APIのURL
+const BASE_URL =
+"https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=";
+const RANKING_URL =
+"https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&genreId=200162&&";
+const applicationId = process.env.REACT_APP_ID;
+
 
   //検索ボタンが押された時の処理
   async function fetchBook(data) {

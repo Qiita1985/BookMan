@@ -1,6 +1,7 @@
 import React from "react";
 
 const Body = ({ book }) => {
+//titleが長すぎるとき途中で止める関数
   function convertitle(string) {
     const name = string;
     if (name.length > 10) {

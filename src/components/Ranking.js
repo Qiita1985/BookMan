@@ -2,15 +2,6 @@ import React from "react";
 import { BiCrown } from "react-icons/bi";
 
 const Ranking = ({ ranks }) => {
-  function convertrank(string) {
-    const name = string;
-    if (name.length > 15) {
-      const splitName = name.substring(0, 15);
-      return splitName + "...";
-    } else {
-      return name;
-    }
-  }
   if (!ranks.Items) return null;
   return (
     <div>
@@ -26,10 +17,9 @@ const Ranking = ({ ranks }) => {
               <p className="text-center">{rank.Item.rank}位</p>
               <div className="flex">
                 <div className="pl-4 h-168 w-160 m-auto">
-                  <a href={rank.Item.itemUrl} className="">
+                  <a href={rank.Item.itemUrl}>
                     <img
                       src={rank.Item.mediumImageUrls[0].imageUrl}
-                      className=""
                     />
                   </a>
                 </div>
