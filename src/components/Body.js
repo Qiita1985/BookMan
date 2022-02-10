@@ -15,7 +15,7 @@ export default function Body ({ book }) {
   return (
     <div className="py-4 pr-1">
       <div className="w-180 ">
-        <Link to={book =>`bookdetail?${book.Item.isbn}`}className="block w-32">
+        <Link to='/bookDetail/:sbin' className="block w-32">
           <img src={book.Item.largeImageUrl} />
         </Link>
       </div>
