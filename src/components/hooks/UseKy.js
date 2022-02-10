@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ky from "ky";
 
-const useBookInfo = () => {
+export default function useBookInfo() {
   const [fetching, setFetching] = useState(false);
   const [books, setBook] = useState("");
   const [loading, setLoading] = useState(false);
@@ -9,12 +9,11 @@ const useBookInfo = () => {
   const [title, setTitle] = useState("");
 
   //楽天APIのURL
-const BASE_URL =
-"https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=";
-const RANKING_URL =
-"https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&genreId=200162&&";
-const applicationId = process.env.REACT_APP_ID;
-
+  const BASE_URL =
+    "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=";
+  const RANKING_URL =
+    "https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&genreId=200162&&";
+  const applicationId = process.env.REACT_APP_ID;
 
   //検索ボタンが押された時の処理
   async function fetchBook(data) {
@@ -40,7 +39,16 @@ const applicationId = process.env.REACT_APP_ID;
       .json();
     setRanks(books);
   }
-  
+
+  //検索のデータ移行
+  const onSubmit = (data) => {
+    if (!fetching) {
+      fetchBook(data.example);
+    } else {
+      alert("ただいま検索中です");
+    }
+  };
+
   return {
     books,
     fetchBook,
@@ -49,7 +57,6 @@ const applicationId = process.env.REACT_APP_ID;
     ranks,
     title,
     rankingBook,
+    onSubmit,
   };
-};
-
-export default useBookInfo;
+}

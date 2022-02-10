@@ -1,54 +1,19 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
 import useBookInfo from "./hooks/UseKy";
 import Bodys from "./Bodys";
 import Ranking from "./Ranking";
 import Loading from "./Loading";
-import { ImSearch } from "react-icons/im";
-import { GiBookshelf } from "react-icons/gi";
+import Header from "./Header";
 
 export default function Home() {
-  const { register, handleSubmit } = useForm();
-  const { books, fetchBook, fetching, loading, ranks, rankingBook, title } =
+  const { books, fetching, loading, ranks, rankingBook, title, onSubmit } =
     useBookInfo();
-  const onSubmit = (data) => {
-    if (!fetching) {
-      fetchBook(data.example);
-    } else {
-      alert("ただいま検索中です");
-    }
-  };
   useEffect(() => {
     rankingBook();
   }, []);
   return (
     <div>
-      <header className="bg-white border-b-sky-400 border-b-4">
-        <div className=" flex px-5 py-5 ">
-          <a href="/">
-            <div className="ml-9 text-4xl flex">
-              <GiBookshelf />
-              BookMan
-            </div>
-          </a>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="box-border border-solid border px-5 pt-2  rounded-3xl
-           ml-10"
-          >
-            <input
-              placeholder="タイトル、著者名"
-              {...register("example", { required: true })}
-              type="text"
-              className="outline-none "
-              autoComplete="none"
-            />
-            <button>
-              <ImSearch />
-            </button>
-          </form>
-        </div>
-      </header>
+      <Header onSubmit={onSubmit} />
       <div className=" pt-2 flex">
         <div className="rounded-lg w-950 border-solid bg-white pl-20 py-10">
           {fetching ? <Loading /> : <Bodys books={books} title={title} />}

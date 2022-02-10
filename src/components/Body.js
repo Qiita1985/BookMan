@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Body = ({ book }) => {
+export default function Body ({ book }) {
 //titleが長すぎるとき途中で止める関数
   function convertitle(string) {
     const name = string;
@@ -14,9 +15,9 @@ const Body = ({ book }) => {
   return (
     <div className="py-4 pr-1">
       <div className="w-180 ">
-        <a href={book.Item.itemUrl} className="block w-32">
+        <Link to={book =>`bookdetail?${book.Item.isbn}`}className="block w-32">
           <img src={book.Item.largeImageUrl} />
-        </a>
+        </Link>
       </div>
       <div className=''>
         <div>{convertitle(book.Item.title)}</div>
@@ -25,5 +26,3 @@ const Body = ({ book }) => {
     </div>
   );
 };
-
-export default Body;

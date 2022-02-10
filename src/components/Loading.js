@@ -1,10 +1,8 @@
 import React from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const Loading = () => {
+export default function Loading() {
   return (
-    <AiOutlineLoading3Quarters className='animate-spin m-auto' size={20}/>
+    <AiOutlineLoading3Quarters className="animate-spin m-auto" size={20} />
   );
-};
-
-export default Loading;
+}

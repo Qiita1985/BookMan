@@ -1,12 +1,16 @@
 import Home from "./components/Home";
+import BookDetail from "./components/BookDetail";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about/:id" element={<BookDetail />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

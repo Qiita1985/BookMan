@@ -1,7 +1,7 @@
 import React from "react";
 import Body from "./Body";
 
-const Bodys = ({ books, title }) => {
+export default function Bodys({ books, title }) {
   if (!books.Items)
     return (
       <div>
@@ -45,6 +45,4 @@ const Bodys = ({ books, title }) => {
       </div>
     );
   }
-};
-
-export default Bodys;
+}
