@@ -1,9 +1,6 @@
-import Header from "./Header";
-
 export default function NotFound() {
   return (
     <div>
-      <Header />
       <div className="text-center">
         <h1 className="text-rose-500 text-3xl">ページが見つかりません</h1>
         <p>
